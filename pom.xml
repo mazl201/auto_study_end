@@ -137,7 +137,58 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <verbose/>
+                        <bootclasspath>
+                            ${env.JAVA_HOME}/jre/lib/rt.jar${path.separator}:${env.JAVA_HOME}/jre/lib/jce.jar
+                        </bootclasspath>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                               
+                <groupId>net.alchim31.maven</groupId>
+                               
+                <artifactId>scala-maven-plugin</artifactId>
+                               
+                <version>3.2.2</version>
+                               
+                <configuration>
+                                       
+                    <recompileMode>incremental</recompileMode>
+                                   
+                </configuration>
+                               
+                <executions>
+                                       
+                    <execution>
+                                               
+                        <goals>
+                                                       
+                            <goal>compile</goal>
+                                                       
+                            <goal>testCompile</goal>
+                                                   
+                        </goals>
+                                           
+                    </execution>
+                                   
+                </executions>
+                           
+            </plugin>
+
         </plugins>
+
     </build>
 
 </project>
